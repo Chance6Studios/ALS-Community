@@ -77,7 +77,7 @@ public:
 	/** Character States */
 
 	UFUNCTION(BlueprintCallable, Category = "ALS|Character States")
-	void SetMovementState(EALSMovementState NewState, bool bForce = false);
+	void SetMovementState(EALSMovementState NewState);
 
 	UFUNCTION(BlueprintGetter, Category = "ALS|Character States")
 	EALSMovementState GetMovementState() const { return MovementState; }
@@ -86,19 +86,19 @@ public:
 	EALSMovementState GetPrevMovementState() const { return PrevMovementState; }
 
 	UFUNCTION(BlueprintCallable, Category = "ALS|Character States")
-	void SetMovementAction(EALSMovementAction NewAction, bool bForce = false);
+	void SetMovementAction(EALSMovementAction NewAction);
 
 	UFUNCTION(BlueprintGetter, Category = "ALS|Character States")
 	EALSMovementAction GetMovementAction() const { return MovementAction; }
 
 	UFUNCTION(BlueprintCallable, Category = "ALS|Character States")
-	void SetStance(EALSStance NewStance, bool bForce = false);
+	void SetStance(EALSStance NewStance);
 
 	UFUNCTION(BlueprintGetter, Category = "ALS|Character States")
 	EALSStance GetStance() const { return Stance; }
 
 	UFUNCTION(BlueprintCallable, Category = "ALS|Character States")
-	void SetGait(EALSGait NewGait, bool bForce = false);
+	void SetGait(EALSGait NewGait);
 
 	UFUNCTION(BlueprintGetter, Category = "ALS|Character States")
 	EALSGait GetGait() const { return Gait; }
@@ -107,28 +107,28 @@ public:
 	EALSGait GetDesiredGait() const { return DesiredGait; }
 
 	UFUNCTION(BlueprintCallable, Category = "ALS|Character States")
-	void SetRotationMode(EALSRotationMode NewRotationMode, bool bForce = false);
+	void SetRotationMode(EALSRotationMode NewRotationMode);
 
 	UFUNCTION(BlueprintCallable, Server, Reliable, Category = "ALS|Character States")
-	void Server_SetRotationMode(EALSRotationMode NewRotationMode, bool bForce);
+	void Server_SetRotationMode(EALSRotationMode NewRotationMode);
 
 	UFUNCTION(BlueprintGetter, Category = "ALS|Character States")
 	EALSRotationMode GetRotationMode() const { return RotationMode; }
 
 	UFUNCTION(BlueprintCallable, Category = "ALS|Character States")
-	void SetViewMode(EALSViewMode NewViewMode, bool bForce = false);
+	void SetViewMode(EALSViewMode NewViewMode);
 
 	UFUNCTION(BlueprintCallable, Server, Reliable, Category = "ALS|Character States")
-	void Server_SetViewMode(EALSViewMode NewViewMode, bool bForce);
+	void Server_SetViewMode(EALSViewMode NewViewMode);
 
 	UFUNCTION(BlueprintGetter, Category = "ALS|Character States")
 	EALSViewMode GetViewMode() const { return ViewMode; }
 
 	UFUNCTION(BlueprintCallable, Category = "ALS|Character States")
-	void SetOverlayState(EALSOverlayState NewState, bool bForce = false);
+	void SetOverlayState(EALSOverlayState NewState);
 
 	UFUNCTION(BlueprintCallable, Server, Reliable, Category = "ALS|Character States")
-	void Server_SetOverlayState(EALSOverlayState NewState, bool bForce);
+	void Server_SetOverlayState(EALSOverlayState NewState);
 
 	UFUNCTION(BlueprintGetter, Category = "ALS|Character States")
 	EALSOverlayState GetOverlayState() const { return OverlayState; }
@@ -380,8 +380,6 @@ protected:
 	void LimitRotation(float AimYawMin, float AimYawMax, float InterpSpeed, float DeltaTime);
 
 	void SetMovementModel();
-
-	void ForceUpdateCharacterState();
 
 	/** Input */
 
